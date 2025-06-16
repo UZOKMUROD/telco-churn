@@ -1,0 +1,11 @@
+data:
+  raw_data: /home/uzokmurod/Desktop/amaliyot/telco-churn/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+
+model_params:
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+  xgboost:
+    learning_rate: 0.1
+    max_depth: 6
+    n_estimators: 100
