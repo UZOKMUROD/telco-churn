@@ -4,7 +4,7 @@ A Level 2 data science project to predict customer churn using structured data.
 
 You can find all observation and analysis in in folder of notebooks
 
-![alt text](pictures/image-1.png)
+![alt text](pictures/image.png)
 
 ![alt text](pictures/image-1.png)
 
