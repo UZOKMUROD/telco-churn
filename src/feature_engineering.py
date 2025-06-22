@@ -2,22 +2,22 @@
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder
-from data_loader import load_data
+from src.data_loader import load_data
 
+df = load_data()
 class DataProcess(BaseEstimator, TransformerMixin):
 
     def fit(self):
         return self
     
-    def transform(self, df):
-        
+    def transform(self, data):
+        print(data)
+        df = data
         df.drop(columns=['customerID', 'gender'], inplace=True, axis=1)
         df['TotalCharges'] = df['TotalCharges'].replace(r'^\s*$', np.nan, regex = True)
         df['TotalCharges'] = pd.to_numeric(df['TotalCharges'])
         df["TotalCharges"] = df["TotalCharges"].ffill()
-        df = df.drop_duplicate()
+        df = df.drop_duplicates()
             
         object_columns = df.select_dtypes(include = 'object').columns
         
@@ -35,15 +35,14 @@ class DataProcess(BaseEstimator, TransformerMixin):
                     values.append(i)
                     i+=1
         
-                df[col] = df[col].replace(unique_val, values)
+            df[col] = df[col].replace(unique_val, values)
         
         y = df.Churn
         X = df.drop('Churn', axis = 1)
         
         return X, y
-
-def pipeline(self):
-    pipeline = Pipeline([
-        ("Data cleaner", DataProcess()),
-        ('Encoder', OneHotEncoder())
-    ])
+    
+if __name__ == '__main__':
+    data_process = DataProcess()
+    data_process.transform(df)
+    
