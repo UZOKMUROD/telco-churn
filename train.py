@@ -24,4 +24,4 @@ if __name__ == '__main__':
     
     print(test_results)
     
-    print(f'\nAfter finetune Best model name is {best_model}')
+    print(f'\nAfter finetune Best model is {best_model}')
