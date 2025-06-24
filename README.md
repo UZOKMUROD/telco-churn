@@ -13,3 +13,4 @@ You can find all observation and analysis in in folder of notebooks
 After given data has been cleaned Correlation among columns 
 
 ![alt text](pictures/image-3.png)
+
